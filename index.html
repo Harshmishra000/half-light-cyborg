@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HALF/LIGHT — Human Augmentation Lab</title>
+  <meta name="description" content="HALF/LIGHT: a cyborg-themed landing page. Half human. Fully you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Boot sequence -->
+  <div class="boot" id="boot" aria-hidden="true">
+    <pre class="boot__log" id="bootLog"></pre>
+  </div>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <a class="logo" href="#top" aria-label="HALF/LIGHT home">
+      <span class="logo__h">HALF</span><span class="logo__slash">/</span><span class="logo__l">LIGHT</span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#augments">Augments</a>
+      <a href="#process">Process</a>
+      <a href="#specs">Specs</a>
+      <a href="#waitlist" class="btn btn--small">Join waitlist</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__copy">
+        <p class="eyebrow"><span class="dot"></span>Human augmentation lab · Bay 07</p>
+        <h1 class="hero__title">Half human.<br><em>Fully you.</em></h1>
+        <p class="hero__lede">HALF/LIGHT builds augmentations that keep the person in the machine. Choose how much of you to upgrade, and we'll engineer the rest.</p>
+        <div class="hero__ctas">
+          <a href="#waitlist" class="btn">Begin integration</a>
+          <a href="#augments" class="btn btn--ghost">Explore augments</a>
+        </div>
+      </div>
+
+      <div class="stage" id="stage">
+        <div class="stage__hud stage__hud--tl">ORGANIC</div>
+        <div class="stage__hud stage__hud--tr">MECHANICAL</div>
+        <div class="stage__machine" aria-hidden="true"></div>
+        <div class="stage__seam" aria-hidden="true"></div>
+
+        <svg class="eye" id="eye" viewBox="0 0 400 240" role="img" aria-label="A cyborg eye, half organic and half mechanical, that follows your cursor">
+          <defs>
+            <clipPath id="eyeShape"><path d="M20 120 Q200 -30 380 120 Q200 270 20 120 Z"/></clipPath>
+            <clipPath id="machineSide"><rect id="machineClip" x="200" y="0" width="200" height="240"/></clipPath>
+            <radialGradient id="irisOrganic" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#3a2a1c"/><stop offset=".45" stop-color="#6b4a2b"/><stop offset=".8" stop-color="#3f6b5a"/><stop offset="1" stop-color="#1d2b26"/>
+            </radialGradient>
+            <radialGradient id="pupilGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#fff1e6"/><stop offset=".35" stop-color="#ff5a1f"/><stop offset="1" stop-color="#ff5a1f" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- organic eye -->
+          <g clip-path="url(#eyeShape)">
+            <rect width="400" height="240" fill="#f4efe6"/>
+            <path d="M20 120 Q200 -30 380 120" stroke="#e3c9b5" stroke-width="18" fill="none" opacity=".6"/>
+            <g class="eye__look">
+              <circle cx="200" cy="120" r="62" fill="url(#irisOrganic)"/>
+              <g stroke="#2a1d12" stroke-opacity=".35" stroke-width="1.2">
+                <line x1="200" y1="62" x2="200" y2="90"/><line x1="245" y1="80" x2="226" y2="100"/><line x1="258" y1="120" x2="232" y2="120"/>
+                <line x1="245" y1="160" x2="226" y2="140"/><line x1="200" y1="178" x2="200" y2="150"/><line x1="155" y1="160" x2="174" y2="140"/>
+                <line x1="142" y1="120" x2="168" y2="120"/><line x1="155" y1="80" x2="174" y2="100"/>
+              </g>
+              <circle cx="200" cy="120" r="26" fill="#0b0b0c" class="eye__pupil"/>
+              <circle cx="186" cy="104" r="9" fill="#fff" opacity=".85"/>
+            </g>
+          </g>
+
+          <!-- mechanical eye -->
+          <g clip-path="url(#machineSide)">
+            <g clip-path="url(#eyeShape)">
+              <rect width="400" height="240" fill="#14171c"/>
+              <g stroke="#2b3038" stroke-width="1">
+                <path d="M0 40H400M0 80H400M0 160H400M0 200H400M240 0V240M280 0V240M320 0V240M360 0V240M160 0V240M120 0V240M80 0V240M40 0V240"/>
+              </g>
+              <g class="eye__look">
+                <circle cx="200" cy="120" r="62" fill="#0d0f12" stroke="#ff5a1f" stroke-width="3"/>
+                <circle class="eye__ring" cx="200" cy="120" r="52" fill="none" stroke="#ff5a1f" stroke-width="8" stroke-dasharray="6 7" opacity=".85"/>
+                <circle cx="200" cy="120" r="40" fill="none" stroke="#8e949e" stroke-width="1"/>
+                <g class="eye__aperture" fill="#1f242b" stroke="#3a414b">
+                  <polygon points="200,88 222,98 210,120"/><polygon points="228,110 226,134 210,120"/><polygon points="214,150 190,150 200,128"/>
+                  <polygon points="174,134 172,110 190,120"/><polygon points="178,98 200,88 190,120"/>
+                </g>
+                <circle cx="200" cy="120" r="30" fill="url(#pupilGlow)"/>
+                <circle cx="200" cy="120" r="7" fill="#fff1e6"/>
+              </g>
+              <g stroke="#ff5a1f" stroke-width="1.5" opacity=".7">
+                <path d="M200 20V45M200 195V220M300 120H330"/>
+              </g>
+            </g>
+          </g>
+
+          <path d="M20 120 Q200 -30 380 120 Q200 270 20 120 Z" fill="none" stroke="#0c0e11" stroke-width="5"/>
+        </svg>
+
+        <div class="stage__readout mono">
+          <span>TRACKING <b id="trackXY">000 / 000</b></span>
+          <span>CLASS <b id="tierLabel">HYBRID</b></span>
+        </div>
+
+        <label class="slider" for="aug">
+          <span class="slider__label mono">Augmentation level</span>
+          <input type="range" id="aug" min="0" max="100" value="50" aria-describedby="augValue">
+          <output class="slider__value mono" id="augValue" for="aug">50%</output>
+        </label>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>ORGANIC</span><i>◆</i><span>MECHANICAL</span><i>◆</i><span>NEURAL</span><i>◆</i><span>SYNTHETIC</span><i>◆</i><span>HUMAN</span><i>◆</i>
+        <span>ORGANIC</span><i>◆</i><span>MECHANICAL</span><i>◆</i><span>NEURAL</span><i>◆</i><span>SYNTHETIC</span><i>◆</i><span>HUMAN</span><i>◆</i>
+      </div>
+    </div>
+
+    <!-- AUGMENTS -->
+    <section class="section" id="augments">
+      <header class="section__head reveal">
+        <p class="eyebrow mono">01 — Catalogue</p>
+        <h2>Four upgrades.<br>One nervous system.</h2>
+      </header>
+
+      <div class="cards">
+        <article class="card reveal" tabindex="0">
+          <div class="card__top"><span class="mono">AUG-01</span><span class="tag">Optic</span></div>
+          <svg class="card__icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 32 Q32 8 60 32 Q32 56 4 32Z"/><circle cx="32" cy="32" r="10"/><path d="M32 16V8M32 56V48M48 32H58"/></svg>
+          <h3>Iris-9 Optic</h3>
+          <p>Zoom ×40, thermal and low-light overlays, and a heads-up layer only you can see.</p>
+          <ul class="card__spec mono"><li><span>Zoom</span><b>×40</b></li><li><span>Spectrum</span><b>IR + UV</b></li></ul>
+        </article>
+        <article class="card reveal" tabindex="0">
+          <div class="card__top"><span class="mono">AUG-02</span><span class="tag">Neural</span></div>
+          <svg class="card__icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="22"/><path d="M14 26H26L30 18L36 46L40 32H50"/></svg>
+          <h3>Synapse Lace</h3>
+          <p>A mesh woven through the cortex. Thought-speed control of every augment you own.</p>
+          <ul class="card__spec mono"><li><span>Latency</span><b>0.3 ms</b></li><li><span>Channels</span><b>4,096</b></li></ul>
+        </article>
+        <article class="card reveal" tabindex="0">
+          <div class="card__top"><span class="mono">AUG-03</span><span class="tag">Limb</span></div>
+          <svg class="card__icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M20 58V34L14 22L22 8H34L40 20V34L48 40V58"/><path d="M22 34H40M26 20H36"/></svg>
+          <h3>Kestrel Arm</h3>
+          <p>Carbon-titanium limb with haptic skin. Lift a car, then feel the paint.</p>
+          <ul class="card__spec mono"><li><span>Grip</span><b>2.1 kN</b></li><li><span>Haptics</span><b>1,200 pts</b></li></ul>
+        </article>
+        <article class="card reveal" tabindex="0">
+          <div class="card__top"><span class="mono">AUG-04</span><span class="tag">Cardio</span></div>
+          <svg class="card__icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 54C10 40 6 28 10 18C14 8 28 8 32 18C36 8 50 8 54 18C58 28 54 40 32 54Z"/><path d="M14 32H24L28 24L34 40L38 32H50"/></svg>
+          <h3>Pulse Core</h3>
+          <p>A self-regulating heart assist that never skips a beat, even when you do.</p>
+          <ul class="card__spec mono"><li><span>Uptime</span><b>99.999%</b></li><li><span>Charge</span><b>Kinetic</b></li></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section section--alt" id="process">
+      <header class="section__head reveal">
+        <p class="eyebrow mono">02 — Integration</p>
+        <h2>From scan to second nature.</h2>
+      </header>
+      <ol class="steps" id="steps">
+        <li class="step reveal"><span class="step__n mono">01</span><h3>Scan</h3><p>A full-body neural map in 90 seconds. No needles.</p></li>
+        <li class="step reveal"><span class="step__n mono">02</span><h3>Design</h3><p>Your augment is drafted around your body, not the other way round.</p></li>
+        <li class="step reveal"><span class="step__n mono">03</span><h3>Integrate</h3><p>Micro-surgical fusion. Most candidates walk out the same day.</p></li>
+        <li class="step reveal"><span class="step__n mono">04</span><h3>Calibrate</h3><p>Two weeks of learning together until it feels like it was always yours.</p></li>
+      </ol>
+    </section>
+
+    <!-- SPECS -->
+    <section class="section" id="specs">
+      <header class="section__head reveal">
+        <p class="eyebrow mono">03 — Telemetry</p>
+        <h2>Engineered to disappear.</h2>
+      </header>
+      <div class="stats">
+        <div class="stat reveal"><b class="stat__n" data-to="0.3" data-dec="1">0</b><span class="stat__u">ms</span><p>Neural response latency</p></div>
+        <div class="stat reveal"><b class="stat__n" data-to="98.7" data-dec="1">0</b><span class="stat__u">%</span><p>Biocompatibility rating</p></div>
+        <div class="stat reveal"><b class="stat__n" data-to="40" data-dec="0">0</b><span class="stat__u">yrs</span><p>Rated service life</p></div>
+        <div class="stat reveal"><b class="stat__n" data-to="24" data-dec="0">0</b><span class="stat__u">/7</span><p>Self-repair cycles</p></div>
+      </div>
+    </section>
+
+    <!-- WAITLIST -->
+    <section class="section waitlist" id="waitlist">
+      <div class="waitlist__box reveal">
+        <p class="eyebrow mono">04 — Candidacy</p>
+        <h2>Become the first version<br>of the next you.</h2>
+        <form class="form" id="form" novalidate>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@domain.com" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="pick">First augment</label>
+            <select id="pick" name="pick">
+              <option>Iris-9 Optic</option><option>Synapse Lace</option><option>Kestrel Arm</option><option>Pulse Core</option>
+            </select>
+          </div>
+          <button class="btn" type="submit">Transmit</button>
+        </form>
+        <p class="form__msg mono" id="formMsg" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="logo"><span class="logo__h">HALF</span><span class="logo__slash">/</span><span class="logo__l">LIGHT</span></span>
+    <p class="mono">A fictional cyborg-themed concept, built for the Techfest 2026 web design challenge.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
